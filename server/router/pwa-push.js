@@ -15,7 +15,7 @@ router.get('/public', async function (req, res) {
 router.post('/sendNoti', async function (req, res) {
     setTimeout(function () {
       webPush
-        .sendNotification(req.body.subscription)
+        .sendNotification(req.body.subscription,'test data')
         .then(function () {
           res.sendStatus(201);
         })
