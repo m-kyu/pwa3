@@ -4,20 +4,6 @@ import './App.css';
 
 function App() {
 
-
-  fetch('https://port-0-pwa3-jvvy2blm4a51lv.sel5.cloudtype.app/pwa-push/sendNoti', {
-        method: 'post',
-        headers: {
-          'Content-type': 'application/json'
-        },
-        body: JSON.stringify({
-          subscription: 1000
-        }),
-      })
-      .then(res=>res.text())
-      .then(res=>{
-        console.log(res)
-      })
   return (
     <div className="App">
       <header className="App-header">

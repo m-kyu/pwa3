@@ -1,11 +1,5 @@
-const express = require('express');
-const router = express.Router();
+const router = require('express').Router();
 const webPush = require('web-push');
-const bodyParser = require('body-parser');
-const app = express();
-
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
 
 const vapidKeys = webPush.generateVAPIDKeys();
 webPush.setVapidDetails(
@@ -30,7 +24,6 @@ router.post('/sendNoti', async function (req, res) {
           console.log(error);
         });
     }, 3000);
-
 })
 
 module.exports = router;
