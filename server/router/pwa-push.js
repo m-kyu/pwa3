@@ -15,7 +15,10 @@ router.get('/public', async function (req, res) {
 router.post('/sendNoti', async function (req, res) {
     setTimeout(function () {
       webPush
-        .sendNotification(req.body.subscription,'test data')
+        .sendNotification(req.body.subscription, JSON.stringify({
+          title: 'Web Push | Getting Started',
+          body:'(Empty message)',
+        }))
         .then(function () {
           res.sendStatus(201);
         })
