@@ -9,4 +9,4 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use('/pwa-push',router);
 
-app.listen(5000)
+app.listen(3000)
