@@ -63,14 +63,14 @@ export function register(config) {
 
             document.getElementById('doIt').onclick = function() {
               fetch('https://port-0-pwa3-jvvy2blm4a51lv.sel5.cloudtype.app/pwa-push/sendNoti', {
-              method: 'post',
-              headers: {
-                'Content-type': 'application/json'
-              },
-              body: JSON.stringify({
-                subscription: subscribe
-              }),
-            })
+                method: 'post',
+                headers: {
+                  'Content-type': 'application/json'
+                },
+                body: JSON.stringify({
+                  subscription: subscribe
+                }),
+              })
             }
           })
           

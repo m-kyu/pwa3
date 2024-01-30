@@ -1,5 +1,11 @@
-const router = require('express').Router();
+const express = require('express');
+const router = express.Router();
 const webPush = require('web-push');
+const bodyParser = require('body-parser');
+const app = express();
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 const vapidKeys = webPush.generateVAPIDKeys();
 webPush.setVapidDetails(
