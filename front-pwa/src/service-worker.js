@@ -85,8 +85,9 @@ self.addEventListener('push', function(event) {
   event.waitUntil(
     
     self.clients.matchAll().then(function(clientList) {
-      
+      console.log(clientList,'clientList')
       var focused = clientList.some(function(client) {
+        console.log(client,'client')
         return client.focused;
       });
 
