@@ -13,10 +13,18 @@ router.get('/public', async function (req, res) {
 })
 
 router.post('/sendNoti', async function (req, res) {
-    const pushSubscription = req.body;
-    webpush.sendNotification(pushSubscription, 'Your Push Payload Text')
+    setTimeout(function () {
+      webPush
+        .sendNotification(req.body.subscription)
+        .then(function () {
+          res.sendStatus(201);
+        })
+        .catch(function (error) {
+          res.sendStatus(500);
+          console.log(error);
+        });
+    }, 3000);
 
-    res.send(vapidKeys.publicKey);
 })
 
 module.exports = router;
