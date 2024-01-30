@@ -37,7 +37,7 @@ export function register(config) {
     window.addEventListener('load', () => {
       const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
 
-      if (isLocalhost) {
+      if (!isLocalhost) {
         // This is running on localhost. Let's check if a service worker still exists or not.
         checkValidServiceWorker(swUrl, config);
 
@@ -50,7 +50,7 @@ export function register(config) {
               return subscription;
             }
 
-            const response = await fetch('http://localhost:5000/pwa-push/public');
+            const response = await fetch('https://port-0-pwa3-jvvy2blm4a51lv.sel5.cloudtype.app/pwa-push/public');
             const publicKey = await response.text();
             const convertedVapidKey = urlBase64ToUint8Array(publicKey);
 
@@ -62,7 +62,7 @@ export function register(config) {
           .then(subscribe=>{
 
             document.getElementById('doIt').onclick = function() {
-              fetch('http://localhost:5000/pwa-push/sendNoti', {
+              fetch('https://port-0-pwa3-jvvy2blm4a51lv.sel5.cloudtype.app/pwa-push/sendNoti', {
               method: 'post',
               headers: {
                 'Content-type': 'application/json'
